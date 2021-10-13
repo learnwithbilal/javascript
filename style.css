@@ -3,3 +3,7 @@ th,
 td {
   text-align: center;
 }
+
+#container {
+  margin: 30px;
+}
