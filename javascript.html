@@ -61,6 +61,12 @@
           return false;
         };
       });
+      let counter01 = 0;
+      function interval() {
+        counter01++;
+        document.querySelector("#setInterval").innerHTML = counter01;
+      }
+      setInterval(interval, 1000);
     </script>
   </head>
   <body>
@@ -97,5 +103,10 @@
       <input type="text" id="task" placeholder="Add Task" />
       <input type="submit" value="Add Task" id="submit" />
     </form>
+    <hr />
+    <h1>SetInterval</h1>
+    <h1 id="setInterval">0</h1>
+    <hr />
+    <a href="localStorage.html"><h2>LocalStorage</h2></a>
   </body>
 </html>
