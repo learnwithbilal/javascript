@@ -39,6 +39,27 @@
           document.querySelector("#sayHello").innerHTML = `Hello, ${name}`;
           return false;
         };
+        const newTask = document.querySelector("#task");
+        const submit = document.querySelector("#submit");
+        submit.disabled = true;
+        newTask.onkeyup = () => {
+          if (newTask.value.length > 0) {
+            submit.disabled = false;
+          } else {
+            submit.disabled = true;
+          }
+        };
+
+        document.querySelector("#formTask").onsubmit = () => {
+          const task = newTask.value;
+          newTask.value = "";
+          let li = document.createElement("li");
+          li.innerHTML = task;
+          let ul = document.querySelector("#tasks");
+          ul.append(li);
+          submit.disabled = true;
+          return false;
+        };
       });
     </script>
   </head>
@@ -70,5 +91,11 @@
     </form>
     <h1 id="sayHello"></h1>
     <hr />
+    <h1>TODO List</h1>
+    <ul id="tasks"></ul>
+    <form id="formTask">
+      <input type="text" id="task" placeholder="Add Task" />
+      <input type="submit" value="Add Task" id="submit" />
+    </form>
   </body>
 </html>
